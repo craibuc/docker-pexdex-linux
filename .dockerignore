@@ -1,0 +1,11 @@
+# git
+.gitignore
+
+# docker
+.dockerignore
+Dockerfile*
+
+# misc
+LICENSE
+README.md
+pexdexCLI.md
