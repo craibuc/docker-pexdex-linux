@@ -5,7 +5,12 @@
 .dockerignore
 Dockerfile*
 
+# make
+Makefile
+
 # misc
 LICENSE
 README.md
 pexdexCLI.md
+
+ignore/
