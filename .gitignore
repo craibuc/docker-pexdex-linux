@@ -1,1 +1,5 @@
 install/
+ignore/
+
+.env
+!.env.sample
