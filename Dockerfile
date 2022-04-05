@@ -18,18 +18,21 @@ COPY ./install/PEXDEX/log4net.* ./
 COPY ./install/PEXDEX/Newtonsoft.* ./
 COPY ./install/PEXDEX/pedscreen_schema ./pedscreen_schema
 COPY ./install/PEXDEX/registry_schema ./registry_schema
+# deid
+COPY ./install/PEXDEX/deid /app/deid
 
 # create logs directory to prevent `Unable to write to validator log` error
 RUN mkdir ./logs
+
+#
+# dependencies
+#
 
 # java runtime
 # COPY ./install/PEXDEX/runtime ./java
 
 # perl runtime
-COPY ./install/PEXDEX/strawberry/perl ./perl
-
-# deid
-COPY ./install/PEXDEX/deid /app/deid
+# COPY ./install/PEXDEX/strawberry/perl ./perl
 
 #
 # final image
@@ -41,10 +44,14 @@ WORKDIR /app
 COPY --from=stage ./app .
 
 #
+# use the Java and Perl binaries installed in the openjdk image
+#
+
+#
 # add java and perl runtimes to the PATH environment variable
 #
 
-ENV PATH "/app/perl/bin:$PATH"
+# ENV PATH "/app/perl/bin:$PATH"
 
 #
 # testing
